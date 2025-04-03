@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking - Home</title>
+    <link rel="stylesheet" href="/home.css">
+    
+</head>
+
+<body>
+
+    {{!-- <nav class="menubar">
+        <div class="logo">
+            <a href="#homepage"></a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul>
+            <li><a class="smooth-scroll-anchor" href="#homepage">Home</a></li>
+            <li><a class="smooth-scroll-anchor" href="#about_us">About Us</a></li>
+            <li><a class="smooth-scroll-anchor" href="#service_land">Services</a></li>
+            <li><a class="smooth-scroll-anchor" href="#products_land">Products</a></li>
+            <li><a class="smooth-scroll-anchor" href="#test_land">Testimonials</a></li>
+            <li><a class="smooth-scroll-anchor" href="#clientland">Clients</a></li>
+            <li><a class="smooth-scroll-anchor" href="#contact">Contact Us</a></li>
+        </ul>
+    </nav> --}}
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="overlay">
+            <h1>Find Your Perfect Stay</h1>
+            <p>Book hotels at the best prices</p>
+
+            <!-- Add form tag -->
+            <form class="search-box" action="/searchHotels" method="GET">
+                <input type="text" name="query" placeholder="Enter hotel name or city" required>
+                <input id="checkin" type="date" name="checkin">
+                <input id="checkout" type="date" name="checkout">
+                <button type="submit">Search</button> 
+            </form>
+        </div>
+    </header>
+
+
+    <!-- Enabling location -->
+    <section class="hotel-deals">
+        <!-- Hero Section (Optional, for location-based suggestion prompt) -->
+        <div id="hero">
+            <h1>Find Hotels Near You</h1>
+            <p>Enable location to see hotels nearby</p>
+            <button id="enable-location">Enable Location</button>
+        </div>
+
+        <!-- Display Hotels Here -->
+        <div id="hotel-list">
+            <!-- Hotels will be listed here -->
+        </div>
+
+        <script src="location.js"></script> <!-- Link to your JavaScript file -->
+
+    </section>
+
+    {{!-- <!-- Top Hotel Deals -->
+    <section class="hotel-deals">
+        <h2>Top Hotel Deals</h2>
+        <div class="hotel-grid">
+            <div class="hotel">
+                <img src="hotel1.jpg" alt="Hotel">
+                <h3>Luxury Inn, Paris</h3>
+                <p>From $120/night</p>
+                <button>Book Now</button>
+            </div>
+            <div class="hotel">
+                <img src="hotel2.jpg" alt="Hotel">
+                <h3>Skyline Hotel, New York</h3>
+                <p>From $180/night</p>
+                <button>Book Now</button>
+            </div>
+        </div>
+    </section> --}}
+
+    <!-- User Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Guests Say</h2>
+        <div class="testimonial">
+            <p>"Amazing experience! The booking process was seamless."</p>
+            <h4>- John Doe</h4>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Subscribe for Exclusive Deals</h2>
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Hotel Booking. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

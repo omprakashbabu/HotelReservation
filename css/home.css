@@ -1,0 +1,264 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+/* Navigation Bar */
+.menubar {
+    background-color: rgba(103, 74, 24, 0.81);
+    font-size: 1.2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed; /* Fix the navbar to the top */
+    top: 0;         /* Ensure it stays at the top */
+    left: 0;        /* Align it to the left edge */
+    padding: 0.3em 0em;
+    
+    z-index: 100;   /* Ensure it stays above other content */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(8, 28, 74);
+    padding-left: 0em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 0.5em;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(206, 206, 214);
+    padding: 0.5em;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 2px 2px 2px rgba(250, 203, 108, 0.3);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+nav ul.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: rgba(61, 127, 152, 0.95);
+    width: 100%;
+    padding: 1em 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: max-height 0.3s ease-in-out;
+}
+
+nav ul.active li {
+    text-align: center;
+    margin: 0.5em 0;
+}
+
+
+/* Home 1 section*/
+.hero {
+    background: url('home1.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.search-box input, .search-box button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-box button {
+    background: #ff6600;
+    color: white;
+    cursor: pointer;
+}
+
+/* Featured Destinations */
+.destinations {
+    padding: 50px;
+    background: #f8f8f8;
+}
+
+.destination-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.destination {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Enable Location */
+#hero {
+    background-color: #804716;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#enable-location {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #663203;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#hotel-list {
+    padding: 20px;
+}
+
+.hotel {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hotel h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.hotel p {
+    margin: 5px 0;
+}
+
+.hotel a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hotel a:hover {
+    text-decoration: underline;
+}
+
+/* Hotel Deals */
+.hotel-deals {
+    padding: 50px;
+}
+
+.hotel-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hotel {
+    width: 250px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.hotel img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.hotel button {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 50px;
+    background: #f8f8f8;
+}
+
+/* Newsletter */
+.newsletter {
+    padding: 30px;
+}
+
+.newsletter input {
+    padding: 10px;
+    width: 250px;
+}
+
+.newsletter button {
+    background: #ff6600;
+    color: white;
+    padding: 10px;
+    border: none;
+}
+
+#checkin{
+    hover
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .destination-grid, .hotel-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .destination, .hotel {
+        width: 90%;
+    }
+}

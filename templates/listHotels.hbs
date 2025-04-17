@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Search Results</title>
+    <link rel="stylesheet" href="/listHotels.css">
+
+    <script>
+        async function fetchHotelImage(hotelName, city, imgElement) {
+            console.log("Fetching image for:", hotelName, city); // Add this
+            if (imgElement.src && imgElement.style.display !== "none") {
+                imgElement.style.display = "none";
+                return;
+            }
+
+            try {
+                const response = await fetch(`/getHotelImage?hotelName=${encodeURIComponent(hotelName)}&city=${encodeURIComponent(city)}`);
+                const data = await response.json();
+                if (data.imageUrl) {
+                    imgElement.src = data.imageUrl;
+                    imgElement.style.display = "block";
+                } else {
+                    imgElement.style.display = "none";
+                }
+            } catch (error) {
+                console.error("Error fetching hotel image:", error);
+            }
+        }
+    </script>
+
+
+
+</head>
+
+<body>
+    <nav class="background">
+        <h1>Search Results</h1>
+
+        {{#if hotels.length}}
+        <div class="hotels-container">
+            {{#each hotels}}
+            <div class="hotel-card" onclick="fetchHotelImage('{{this.Hotel_Name}}', '{{this.City}}', this.querySelector('img'))">
+                <h2>{{this.Hotel_Name}}</h2>
+                <p><strong>City:</strong> {{this.City}}</p>
+                <p><strong>Rating:</strong> {{this.Hotel_Rating}}</p>
+                <p><strong>Price:</strong> ${{this.Hotel_Price}}</p>
+                <p><strong>Features:</strong> {{this.Feature_1}}</p>
+                <img src="" alt="Hotel Image" style="display:none; width: 100%; margin-top: 10px;">
+
+
+
+                <form action="/pay" method="post">
+                    <input type="hidden" name="hotelName" value="{{this.Hotel_Name}}">
+                    <input type="hidden" name="price" value="{{this.Hotel_Price}}">
+                    <button type="submit" class="book-hotel-btn">Book Hotel</button>
+                </form>
+
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p>No hotels found. Try a different search!</p>
+        {{/if}}
+
+        <a href="/home">Back to Home</a>
+    </nav>
+
+</body>
+
+</html>

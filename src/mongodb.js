@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://admin:admin@mongoauth://localhost:27017/Hotel_Reservation?authSource=admin")
+mongoose.connect("localhost:27017/Hotel_Reservation")
 .then(() => {
     console.log("✅ MongoDB is connected");
 })

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("localhost:27017/HotelReservation")
+mongoose.connect("13.201.129.14:27017/HotelReservation")
 .then(() => {
     console.log("✅ MongoDB is connected");
 })

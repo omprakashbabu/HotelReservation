@@ -1,20 +1,31 @@
 # Use the official Node.js image
 FROM node:18
 
-# Install git
+# Install git (needed for cloning the repo)
 RUN apt-get update && apt-get install -y git
 
-# Clone your GitHub repository (replace with your actual repo URL)
-https://github.com/omprakashbabu/HotelReservation.git /app
+# Clone your GitHub repository
+RUN git clone https://github.com/omprakashbabu/HotelReservation.git /app
 
-# Set working directory
+# Set the working directory
 WORKDIR /app
 
-# Install dependencies and nodemon globally
-RUN npm install -g nodemon && npm install
+# Install app dependencies
+RUN npm install -g nodemon
 
-# Expose the port the app runs on
+# Install all necessary packages (you can also use package.json for this)
+RUN npm install \
+    express \
+    hbs \
+    mongoose \
+    axios \
+    node-fetch \
+    csv-parser \
+    paypal-rest-sdk \
+    cors
+
+# Expose the port your app runs on
 EXPOSE 80
 
-# Run the app using nodemon
+# Start the application
 CMD ["nodemon", "src/index.js"]

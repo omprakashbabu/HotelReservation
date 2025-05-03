@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    networks:
+      - hotel-net
+    volumes:
+      - mongo-data:/data/db
+
+  hotel-app:
+    build: .
+    container_name: hotel-reservation-app
+    ports:
+      - "80:80"
+    depends_on:
+      - mongodb
+    networks:
+      - hotel-net
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/HotelReservation
+
+networks:
+  hotel-net:
+
+volumes:
+  mongo-data:

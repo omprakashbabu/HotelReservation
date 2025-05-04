@@ -38,7 +38,3 @@ Start the server
 ```
 
 To access the website, go to http://localhost:80
-
-
-Done by
-

@@ -7,7 +7,7 @@ Jenkins to create a Pipeline, which also has the added functionality of using Gi
 
 Grafana to monitor the instance, with the help of Prometheus and Node Exporter.
 
-Trivy is scan the Docker image being built, which is our NodeJS app.
+Trivy scans the Docker image being built, which is our NodeJS app.
 
 
 ## How to use the NodeJS app directly

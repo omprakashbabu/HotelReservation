@@ -6,12 +6,6 @@ pipeline {
      }
  
      stages {
-         stage('Clone Repository') {
-             steps {
-                 git 'https://github.com/omprakashbabu/HotelReservation.git'
-             }
-         }
- 
          stage('Install Dependencies') {
              steps {
                  sh 'npm install'

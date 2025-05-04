@@ -1,0 +1,20 @@
+- name: Update and upgrade apt packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install required packages
+  apt:
+    name:
+      - curl
+      - apt-transport-https
+      - ca-certificates
+      - software-properties-common
+      - npm
+    state: present
+
+- name: Install Trivy
+  shell: |
+    wget https://github.com/aquasecurity/trivy/releases/download/v0.62.0/trivy_0.62.0_Linux-64bit.tar.gz
+    tar -xzf trivy_0.62.0_Linux-64bit.tar.gz
+    sudo mv trivy /usr/local/bin/

@@ -1,0 +1,8 @@
+- name: Setup EC2 Instance with Jenkins
+  hosts: web
+  become: true
+  roles:
+    - common
+    - docker
+    - jenkins
+

@@ -1,0 +1,70 @@
+---
+- name: Install Java
+  apt:
+    name: openjdk-17-jdk
+    state: present
+
+- name: Create keyrings directory if not present
+  file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+- name: Download Jenkins GPG key (2023+)
+  get_url:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    dest: /etc/apt/keyrings/jenkins-keyring.asc
+    mode: '0644'
+
+- name: Add Jenkins apt repository
+  copy:
+    content: "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/\n"
+    dest: /etc/apt/sources.list.d/jenkins.list
+    mode: '0644'
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install Jenkins
+  apt:
+    name: jenkins
+    state: present
+
+- name: Add Jenkins user to sudo group
+  user:
+    name: jenkins
+    groups: sudo
+    append: yes
+
+- name: Add Jenkins user to Docker group
+  user:
+    name: jenkins
+    groups: docker
+    append: yes
+
+- name: Start and enable Jenkins
+  service:
+    name: jenkins
+    state: started
+    enabled: yes
+
+- name: Open port 8080 in UFW
+  ufw:
+    rule: allow
+    port: 8080
+    proto: tcp
+
+- name: Ensure Jenkins has passwordless sudo access
+  copy:
+    dest: /etc/sudoers.d/jenkins
+    content: "jenkins ALL=(ALL) NOPASSWD:ALL\n"
+    owner: root
+    group: root
+    mode: '0440'
+
+- name: Final restart to ensure Jenkins picks up all changes
+  service:
+    name: jenkins
+    state: restarted
+    enabled: yes

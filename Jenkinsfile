@@ -26,13 +26,13 @@ pipeline {
 
         stage('Trivy Security Scan') {
             steps {
-                // Run Trivy scan and capture the output
+                // Run Trivy scan and capture the output in JSON format
                 sh '''
-                  TRIVY_OUTPUT=$(trivy image hotel-app_hotel-app:latest)
-                  echo "$TRIVY_OUTPUT" > trivy_output.txt
+                  TRIVY_OUTPUT=$(trivy image --format json hotel-app_hotel-app:latest)
+                  echo "$TRIVY_OUTPUT" > trivy_output.json
                 '''
-                // Archive the output as an artifact
-                archiveArtifacts artifacts: 'trivy_output.txt'
+                // Archive the JSON output as an artifact
+                archiveArtifacts artifacts: 'trivy_output.json'
             }
         }
 

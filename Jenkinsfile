@@ -42,7 +42,7 @@ pipeline {
                 // Run Trivy scan but don't fail the pipeline.  Use JSON format.
                 sh '''
                     echo "Running Trivy scan..."
-                    trivy image --format json -o trivy-report.json hotel-reservation-app || true
+                    trivy image --format json -o trivy-report.json docker.io/library/hotel-app_hotel-app || true
                 '''
                 // Convert JSON to HTML using a separate tool (if needed)
                 script {

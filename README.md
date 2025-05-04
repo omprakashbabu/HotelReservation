@@ -1,16 +1,43 @@
-# Hotel Reservation app
 
-If you want to start the application, directly without the help of Docker or Jenkins
+# Hotel Reservation App
 
-Use npm install
+Simple DevOps project which uses Docker to run the MongoDB and NodeJS app through which the website can be access
 
-and then
+Jenkins to create a Pipeline, which also has the added functionality of using Github webhooks to immediately create a new build whenever anything is committed to the Repository.
 
-nodemon src/index.js
+Grafana to monitor the instance, with the help of Prometheus and Node Exporter.
 
-that is provided you have setup a MongoDB server which is open at port 27017 locally
+Trivy is scan the Docker image being built, which is our NodeJS app.
 
-Access http://localhost:80/login to access the website
+To Start
 
 
-If you want you use Docker Compose, simple clone the repository and use the command
+## How to use the NodeJS app directly
+
+Clone the project
+
+```bash
+  git clone https://github.com/omprakashbabu/HotelReservation.git
+```
+
+Go to the project directory
+
+```bash
+  cd HotelReservation
+```
+
+Install dependencies
+
+```bash
+  npm install
+  npm install -g nodemon
+```
+
+Start the server
+
+```bash
+  nodemon src/index.js
+```
+
+To access the website, go to http://localhost:80
+

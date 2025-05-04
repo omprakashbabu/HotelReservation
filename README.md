@@ -9,8 +9,6 @@ Grafana to monitor the instance, with the help of Prometheus and Node Exporter.
 
 Trivy is scan the Docker image being built, which is our NodeJS app.
 
-To Start
-
 
 ## How to use the NodeJS app directly
 

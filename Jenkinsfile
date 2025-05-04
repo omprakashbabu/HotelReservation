@@ -45,10 +45,6 @@ pipeline {
     }
 
     post {
-        always {
-            // Artifacts are archived regardless of build result
-        }
-
         success {
             echo 'Deployment successful!'
         }

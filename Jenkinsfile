@@ -30,7 +30,7 @@ pipeline {
                 sh '''
                 docker run --rm -u zap \
                   -v $(pwd):/zap/wrk/:rw \
-                  owasp/zap2docker-stable zap-baseline.py \
+                  zaproxy/zap-stable zap-baseline.py \
                   -t http://hotel-reservation-app:80 \
                   -g gen.conf -r zap_report.html || true
                 '''

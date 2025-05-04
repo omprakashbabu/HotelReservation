@@ -46,8 +46,8 @@ pipeline {
                 '''
                 // Convert JSON to HTML using a separate tool (if needed)
                 script {
-                    //  Example using  jq and a simple HTML wrapper (requires jq in the Jenkins agent)
-                    def trivyReportJson = readJSON file: 'trivy-report.json'
+                    //  Use readTree instead of readJSON (standard in Jenkins)
+                    def trivyReportJson = readTree file: 'trivy-report.json'
                     def htmlReport = """
                         <html>
                         <head>

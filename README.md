@@ -1,9 +1,9 @@
     
 # Hotel Reservation App
 
-Simple DevOps project which uses Docker to run the MongoDB and NodeJS app through which the website can be access
+Simple DevOps project which uses Docker to run the MongoDB and NodeJS app through which the website can be accessed
 
-Jenkins to create a Pipeline, which also has the added functionality of using Github webhooks to immediately create a new build whenever anything is committed to the Repository.
+Jenkins to create a Pipeline, which also has the added functionality of using Github webhooks to immediately create a new build whenever anything is committed to the repository.
 
 Grafana to monitor the instance, with the help of Prometheus and Node Exporter.
 
